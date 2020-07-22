@@ -21,15 +21,15 @@ declare interface IPost {
   post_title: string;
   pub_date: string;
   last_modified: string;
-  author: UserData;
+  author: IUserData;
   stream: number;
 }
 
 declare interface IComment {
   pk: number;
-  post: any;
+  post: number;
   content: string;
-  created_at: string;
-  user: UserData;
-  replies: Array<Comment>;
+  created_at: string; // for ex: 2020-05-05T23:37:49.992636+05:30
+  user: IUserData;
+  replies: Array<IComment>;
 }
