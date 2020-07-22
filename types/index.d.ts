@@ -6,7 +6,6 @@ declare interface IUserData {
   email: string;
   fblink: string;
   following: number;
-  hall: number;
 }
 
 declare interface IStream {
