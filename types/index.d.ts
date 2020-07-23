@@ -27,6 +27,7 @@ declare interface IPost {
 
 declare interface IComment {
   pk: number;
+  parent: number;
   post: number;
   content: string;
   created_at: string; // for ex: 2020-05-05T23:37:49.992636+05:30
