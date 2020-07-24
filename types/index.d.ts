@@ -32,4 +32,8 @@ declare interface IComment {
   created_at: string; // for ex: 2020-05-05T23:37:49.992636+05:30
   user: IUserData;
   replies: Array<IComment>;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Add login screen
