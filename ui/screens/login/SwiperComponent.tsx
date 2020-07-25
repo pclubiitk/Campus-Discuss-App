@@ -36,8 +36,8 @@ const SwiperComponent = (props:any) => {
                 <View style={styles.slide}>
                     <View style={styles.header}>
                         <Image
-                            source = {require("./asset/asset2.png")}
-                            style={styles.image}
+                            source = {require("./asset/custom.png")}
+                            style={styles.image1}
                             resizeMode={"stretch"}
                         />
                     </View>
@@ -54,8 +54,8 @@ const SwiperComponent = (props:any) => {
                 <View style={styles.slide}>
                     <View style={styles.header}>
                         <Image
-                            source={require("./asset/asset3.png")}
-                            style={styles.image}
+                            source={require("./asset/custom3.jpg")}
+                            style={styles.image2}
                             resizeMode={"stretch"}
                         />
                     </View>
@@ -72,8 +72,8 @@ const SwiperComponent = (props:any) => {
                 <View style={styles.slide}>
                     <View style={styles.header}>
                         <Image
-                            source={require("./asset/asset1.png")}
-                            style={styles.image}
+                            source={require("./asset/custom4.png")}
+                            style={styles.image3}
                             resizeMode={"stretch"}
                         />
                     </View>
@@ -126,7 +126,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 20
     },
-    image: {
+    image1: {
+        height: height_img,
+        width: height_img*1.5
+    },
+    image3: {
+        height: height_img*1.3,
+        width: width_img*1.3
+    },
+    image2: {
         height: height_img,
         width: width_img
     },
