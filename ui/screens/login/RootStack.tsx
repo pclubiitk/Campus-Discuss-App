@@ -5,18 +5,18 @@ import LoginComponent from "./LoginComponent";
 import SwiperComponent from "./SwiperComponent";
 
 const StackNavigator = createStackNavigator({
-    SwiperScreen: {
-        screen: SwiperComponent,
-        navigationOptions: {
-            headerShown: false
-        }
+  SwiperScreen: {
+    screen: SwiperComponent,
+    navigationOptions: {
+      headerShown: false,
     },
-    LoginScreen: {
-        screen: LoginComponent,
-        navigationOptions: {
-            headerShown: false
-        }
-    }
-})
+  },
+  LoginScreen: {
+    screen: LoginComponent,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+});
 
 export default createAppContainer(StackNavigator);
