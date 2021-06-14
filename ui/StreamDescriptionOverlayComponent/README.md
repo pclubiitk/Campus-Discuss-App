@@ -11,3 +11,30 @@ The following snippet shows how to use it in your code:
 ```
 <StreamDescriptionOverlay stream={mystream} open={true} isFollowed={true} onButtonPress={myfunc}/>        
 ```
+---
+Here is a bit more detailed code for `App.tsx` which uses `StreamDescriptionOverlay` component:
+```
+import {
+    View
+  } from "react-native";
+  import React from 'react';
+  import StreamDescriptionOverlay from './ui/screens/login/StreamDescriptionOverlayComponent';  
+  
+const mystream: IStream = {
+      pk: 101,
+      title: "CRYPTICS",
+      description: "This stream is all about cryptography.",
+      followed_by: 1001,
+  }
+function myfunc(){
+    return;
+};  
+  
+export default myApp = () => {
+    return (
+      <View style={{alignItems: 'center', top: 50}}>
+        <StreamDescriptionOverlay stream={mystream} open={true} isFollowed={true} onButtonPress={myfunc}/>        
+      </View>
+    );
+};
+```
