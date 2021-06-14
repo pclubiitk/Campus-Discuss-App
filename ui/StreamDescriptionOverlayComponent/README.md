@@ -18,7 +18,7 @@ import {
     View
   } from "react-native";
   import React from 'react';
-  import StreamDescriptionOverlay from './ui/screens/login/StreamDescriptionOverlayComponent';  
+  import StreamDescriptionOverlay from './ui/StreamDescriptionOverlayComponent/StreamDescriptionOverlay-Component';  
   
 const mystream: IStream = {
       pk: 101,
