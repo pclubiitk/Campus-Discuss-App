@@ -39,20 +39,16 @@ import {
   };
   const MyButton=(props : Props)=>{
     const [following,changefollowing]=useState(props.isFollowed);
-    const [myIcon, setmyIcon] = following? useState("bell-slash") : useState("bell");
-    const [buttonColor, setbuttonColor] = following? useState("#1762e3") : useState("#ff0000");
-    function changeit(){
-        changefollowing((following) ? false : true);
-        setmyIcon(!following ? "bell-slash" : "bell");
-        setbuttonColor(!following ? "#1762e3" : "#ff0000");
+    const changeit= () => {
+        changefollowing(!following);
         props.onButtonPress();
     }
     return(
       <View style={Overlaystyles.component}>
         {
             <Icon.Button
-            name={myIcon}
-            backgroundColor={buttonColor}
+            name={following ? "bell-slash" : "bell"}
+            backgroundColor={following ? "#1762e3" : "#ff0000"}
             onPress={changeit}
             >
                 {(following)? "UNSUBSCRIBE" : "SUBSCRIBE"}
@@ -63,12 +59,9 @@ import {
   };
     const StreamDescriptionOverlay = (props : Props) => {
     const [visible, setVisible] = useState(props.open);
-    const toggleOverlay = () => {
-      setVisible(!visible);
-    };    
     return (
       <View>
-        <Overlay isVisible={visible} onBackdropPress={toggleOverlay} overlayStyle={Overlaystyles.container}>
+        <Overlay isVisible={visible} onBackdropPress={()=>setVisible(false)} overlayStyle={Overlaystyles.container}>
         <Image
           source={require("./assets/cryptic.jpeg")}
           style={Overlaystyles.image}
