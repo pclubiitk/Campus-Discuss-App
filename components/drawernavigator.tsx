@@ -1,45 +1,67 @@
-import React from "react";
-
-import { createAppContainer } from "react-navigation";
-import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "react-navigation-stack"
-import { createDrawerNavigator } from "react-navigation-drawer"
-
-import { Profile }  from "../ui/screens/profile"
-import { Feed } from "../ui/screens/feed"
-
-const  ProfileStack = createStackNavigator({
-
-});
-
-const ProfileStackScreen=()=>(
-    <ProfileStack.Navigator>
-        <ProfileStack.Screen name="Profile" component={Profile} />
-    </ProfileStack.Navigator>
-)
+import React,{Component} from 'react';
+import { StyleSheet,Button, View,Text } from 'react-native';
+import { 
+    DrawerContentScrollView,
+    DrawerItemList,
+    DrawerItem,
+    createDrawerNavigator} from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';  
 
 
-const  FeedStack = createStackNavigator({
+function HomeScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+         <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+      <Button
+        onPress={() => navigation.navigate('Feed Screen')}
+        title="Go to Feed Screen"
+      />
+    </View>
+  );
+}
 
-});
+function FeedScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    </View>
+  );
+}
+  
+function CustomDrawerContent(props) {
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem
+          label="Close drawer"
+          onPress={() => props.navigation.closeDrawer()}
+        />
+      </DrawerContentScrollView>
+    );
+  }
 
-const FeedStackScreen=()=>(
-    <FeedStack.Navigator>
-        <ProfileStack.Screen name="Profile" component={Profile} />
-    </FeedStack.Navigator>
-)
 
 
+const Drawer = createDrawerNavigator();
+
+function MyDrawer(){
+    return(
+        <Drawer.Navigator  drawerContent={props => <CustomDrawerContent {...props} />}>
+             <Drawer.Screen name="Profile" component={HomeScreen} />
+                <Drawer.Screen name="Feeds" component={FeedScreen} />
+        </Drawer.Navigator>
+    );
+}
 
 
-const Drawer = createDrawerNavigator({
+export default MyDrawer;
 
-});
-
-export default() => (
-    <NavigationContainer>
-        <Drawer.Screen name="Profile" component={ProfileStackScreen}/>
-        <Drawer.Screen name="Feed" component={FeedStackScreen}/>
-    </NavigationContainer>
-);
-
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });

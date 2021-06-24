@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Button } from "react-native";
 
 
 
-  export const Feed=()=>{
+export const Feed=()=>{
     return(
         <Text>Feed Screen</Text>
     )
