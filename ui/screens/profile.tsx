@@ -1,135 +1,202 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Linking } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Avatar, Card , Input, ListItem, Icon, Button, Header} from "react-native-elements";
 
-const IUserData = () => {
 
-  const Data = [
-    {
-      title: "May, 2021",
-      data: ["Finally, midsem over!!!", "Yaar, ye dukh kahe khatam nahi hota :'(", "Yaar..meko laga tha ek bar Harry Potter padh lena bhot h for the quiz... :')"]
-    },
-    {
-      title: "April, 2021",
-      data: ["Finally...mth quiz OVER!!!!!"]
-    }
-  ]
 
- 
+const users = {
+  name: 'Sarthak Goyal',
+  avatar: 'https://qph.fs.quoracdn.net/main-qimg-1c761741c76263eae062cad851b0b80f.webp'
+}
 
-  const username= "Sarthak Goyal";
-  
+const Data = [
+  {
+    title: "May, 2021",
+    data: ["Finally, midsem over!!!", "Yaar, ye dukh kahe khatam nahi hota :'(", "Yaar..meko laga tha ek bar Harry Potter padh lena bhot h for the quiz... :')"]
+  },
+  {
+    title: "April, 2021",
+    data: ["Finally...mth quiz OVER!!!!!"]
+  }
+]
+
+const listevil= [
+  {
+    title: 'Important days of my Life',
+    icon: 'calendar',
+    type:'evilicon'
+  },
+  {
+    title: 'Education',
+    icon: 'pencil',
+    type: 'evilicon'
+  },
+  {
+    title: 'Places I have been',
+    icon: 'image',
+    type: 'evilicon'
+  },
+]
+const listData= ['21st July 2021', 'Studying at IIT Kanpur', 'Visited Kanpur']
+
+
+
+
+function IUserData() {
   return (
-  <View style={styles.container}>
-      
-  <Text style={styles.heading}>Profile Screen</Text>
-  <View style={styles.top}>
-    <View style={styles.profileImage}>
-      <Text style={styles.ImageText}>{username[0]}</Text>
-    </View>
-    <Text style={styles.Text}>{username}</Text>
-  </View>  
-    
-    
-    <View>
-    <FlatList 
-      contentContainerStyle= {{
-        paddingBottom:0,
-      }}
-      data= {[
-        {key: 'Coding enthusiast'},
-        {key: 'Went to Allen Institute'},
-        {key: 'Studies at IIT Kanpur'},
-        {key: 'Lives in Kanpur, Uttar Pradesh'},
-      ]}
-      renderItem= {({item})=> <Text style={styles.Text}>{item.key}</Text> }
-      ListFooterComponent={<View style={{width:15}}></View>}
-    />
-    </View>
-    <View style={styles.urlbox}>
-    <Text style={styles.url} onPress={()=> Linking.openURL('#') }>facebook</Text>
-    <Text style={styles.url} onPress={()=> Linking.openURL('#') }>linkedin</Text>
-    <Text style={styles.url} onPress={()=> Linking.openURL('#') }>github</Text>
-    </View>
-  <View style={styles.posts}>  
-    <Text style={{fontSize:40,lineHeight:50,fontFamily:'Verdana'}}>Posts</Text>
-    <Text style={{fontSize:20,lineHeight:30}}>Check out the cool conversations you have started in the past!</Text>
-    <View>
-      <FlatList 
-          data= {Data}
-          renderItem= {({item})=> (
-            <View style={styles.box}>
-            <Text>{item.title}{"\n"}{item.data} </Text>
-            </View>
-          )}
-          ListFooterComponent={<View style={{width:15}}></View>}
+    <ScrollView>
+      <Header
+        leftComponent={{ icon: 'menu', color: '#fff', iconStyle: { color: '#fff' } }}
+        centerComponent={{ text: 'Profile Page', style: { 
+          textAlign: 'center',
+          fontSize: 25,
+          color: '#fff',
+          fontFamily: 'Baskerville Old Face'
+          } 
+        }}
+        rightComponent={ 
+          <Button
+          onPress={()=> {
+            console.log("You pressed the logout button")
+          }}
+          icon={
+            <Icon
+              name="close"
+              size={15}
+              color="white"
+              type='evilicon'
+            />
+          }
+          
+        />
+         }
       />
-    </View>  
+      <Card>
+      <Card.Divider/>
+      <Card.Image source= {{uri: users.avatar}}>
         
-  </View>    
-   
-<StatusBar style="auto" />
-</View>
+        <Avatar
+          rounded
+          title={users.name[0]}
+          size= {90}
+          activeOpacity= {0.7}
+          overlayContainerStyle={{backgroundColor: 'blue'}}
+          containerStyle= {{ position: 'absolute', bottom: 0, alignSelf: 'center'}}
+        />
+      </Card.Image>
+      <Text style= {styles.user}>{users.name}</Text>
+      <Text>Just pretend that I have written some really good bio here and I am adding unnecessary text so that I have sufficient length.</Text>
+      
+      <View>
+      {
+        listevil.map((item, i) => (
+          <ListItem.Swipeable key={i} rightContent={
+            <Text>{listData[i]}</Text>
+          } bottomDivider>
+            <Icon name={item.icon} type = {item.type} color = '#23B6FF'/>
+            <ListItem.Content>
+              <ListItem.Title>{item.title}</ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem.Swipeable>
+        ))
+      }
+      </View>
+      <Input
+        placeholder='Facebook Profile link'
+        leftIcon={
+          <Icon
+            name='sc-facebook'
+            size={24}
+            color='#23B6FF'
+            type='evilicon'
+          />
+        }
+      />
+      <Input
+        placeholder='GitHub Profile link'
+        leftIcon={
+          <Icon
+            name='sc-github'
+            size={24}
+            color='#23B6FF'
+            type='evilicon'
+          />
+        }
+      />
+      <Input
+        placeholder='LinkedIn Profile link'
+        leftIcon={
+          <Icon
+            name='sc-linkedin'
+            size={24}
+            color='#23B6FF'
+            type='evilicon'
+          />
+        }
+      />
+      <Card wrapperStyle={{
+      backgroundColor: '#FFFFFF'
+    }}>
+      <Card.Title style = {styles.headers1} >Posts</Card.Title>
+      
+        {
+          Data.map((d,i) => {
+            return(
+              <View key={i} >
+                <Text style = { styles.headers2}>{d.title}</Text>
+                <Card containerStyle={{
+                  borderColor: '#dbf4ff',
+                  backgroundColor: '#dbf4ff',
+                }}
+                wrapperStyle= {{
+                  backgroundColor: '#fff',
+                  borderWidth: 2,
+                  borderColor: '#ffffff'
+                  
+                }}>
+                  <Text style={styles.body}>{d.data}</Text>
+                </Card>
+              </View>
+            )
+          })
+        }
+      
+    </Card>
+    </Card>
+    </ScrollView>
+  );
+}
 
-
-);
-};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    marginLeft: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 100,
-    backgroundColor: '#512DA8',
-    margin: '20px 0',
-  },
-  ImageText: {
-    fontSize: 70,
-    color: '#fff',
-    marginLeft: 27,
-    marginTop: 10,
-  },
-  heading: {
-    fontSize: 50, 
-    paddingBottom: 30,
+  user: {
     textAlign: 'center',
-    fontFamily: 'Verdana',
-  },
-  Text: {
-    fontSize: 20,
+    fontSize: 30,
     fontFamily: 'Baskerville Old Face',
   },
-  url: {
-    color: 'blue',
-    fontSize: 20,
-    
+  headers1: {
+    textAlign: 'center',
+    fontSize: 25,
+    color: '#23b6ff',
+    fontFamily: 'Baskerville Old Face'
   },
-  urlbox:{
-      marginTop: 40,
-      marginBottom: 40,
+  headers2: {
+    textAlign: 'left',
+    fontSize: 15,
+    color: 'black',
+    fontFamily: 'Verdana'
+
   },
-  top: {
-    alignItems: 'center',
-  },
-  box: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 200,
-    width: 300,
-    borderWidth: 1,
-    borderColor: 'black',
-    backgroundColor: 'yellow',
-    lineHeight:10,
-    paddingHorizontal: 15,
-    marginRight: 15,
-  },
-  posts: {
-    alignItems: 'center',
-  },
+  body: {
+    textAlign: 'left',
+    fontSize: 15,
+    color: '#025cb0',
+    fontFamily: 'Lucida Console'
+  }
 });
