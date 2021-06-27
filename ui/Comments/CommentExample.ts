@@ -34,13 +34,7 @@ const comments: Array<IComment> = [
   ]),
   comment('oli', 4, 'Ayodhya is in Nepal', 0, [
     comment('Umar Akmal', 5, 'Nepal is Ayodhya.', 4, []),
-    comment(
-      'Anonymous',
-      6,
-      'Go Brrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.',
-      4,
-      [],
-    ),
+    comment('Anonymous', 6, 'Go Brrrrrr.', 4, []),
     comment('Bhau', 7, 'Pehli fursat me nikal', 4, [
       comment(
         'Oli',

@@ -1,3 +1,5 @@
+/* eslint-disable react-native/no-inline-styles */
+
 import React from 'react';
 import {Card} from 'react-native-elements';
 import {StyleSheet, View, Text} from 'react-native';

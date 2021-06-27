@@ -33,7 +33,7 @@ const CommentBox = (props: Props) => {
             />
           </View>
         </View>
-        <ReplyBox placeholder={'Write a comment...'} />
+        <ReplyBox placeholder={'Add a comment'} />
       </View>
     </Overlay>
   );

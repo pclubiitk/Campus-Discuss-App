@@ -3,10 +3,9 @@ import {
   TextInput,
   View,
   StyleSheet,
-  TouchableNativeFeedback,
+  TouchableOpacity,
   Image,
 } from 'react-native';
-import {Icon} from 'react-native-elements';
 
 type Props = {
   placeholder: string;
@@ -33,13 +32,15 @@ const ReplyBox = forwardRef((props: Props, ref) => {
           value={inputText}
           ref={ref}
         />
-        <TouchableNativeFeedback
+        <TouchableOpacity
           style={styles.sendIcon}
-          onPress={onReplyHandler}>
+          onPress={onReplyHandler}
+          activeOpacity={0.5}>
           <Image
-            source={require('E:/Coding/Visual_Studio_Code/CampusApp/assets/send.png')}
+            source={require('../../assets/send.png')}
+            style={{width: 40, height: 40, translateY: 3}}
           />
-        </TouchableNativeFeedback>
+        </TouchableOpacity>
         {/* <Icon
           name="reply"
           type="entypo"
@@ -65,19 +66,28 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 21,
     marginLeft: 10,
-    marginRight:22,
+    marginRight: 22,
     alignSelf: 'center',
   },
   sendIcon: {
-    alignSelf: 'flex-end',
-    translateY: -3,
+    translateX: -12,
+    translateY: -5,
+    alignContent: 'center',
+    alignSelf: 'center',
+    alignItems: 'center',
   },
   inputBox: {flexDirection: 'row'},
   outer: {
     justifyContent: 'flex-end',
     backgroundColor: '#e0e0e0',
   },
-  iconContainer: {alignSelf: 'flex-end', translateY: -3},
+  iconContainer: {
+    alignSelf: 'center',
+    translateY: -30,
+    height: 40,
+    width: 40,
+    justifyContent: 'center',
+  },
 });
 
 export default ReplyBox;

@@ -51,7 +51,11 @@ const Title = (props: Props) => {
         },
       }}
       title={
-        <Text style={{...styles.name, ...props.titleStyle}}>{props.name}</Text>
+        <Text style={{...styles.name}}>
+          {props.name}
+          <Text> </Text>
+          {'\u25CF'}
+        </Text>
       }
       containerStyle={styles.container}
     />
@@ -61,9 +65,9 @@ const Title = (props: Props) => {
 const styles = StyleSheet.create({
   name: {
     fontWeight: 'bold',
-    height:20,
-    fontSize:16,
-    transform: [{translateX: -27}, {translateY: -2}],//title 
+    height: 23,
+    fontSize: 16,
+    transform: [{translateX: -27}, {translateY: -2}], //title
   },
   container: {
     padding: '1%',

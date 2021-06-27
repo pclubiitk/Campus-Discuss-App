@@ -20,8 +20,7 @@ const MinimisedComment = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     padding: 4,
-    borderBottomLeftRadius: 12,
-    borderTopLeftRadius: 12,
+    borderRadius:12,
     marginBottom: 4,
     marginTop: 4,
   },

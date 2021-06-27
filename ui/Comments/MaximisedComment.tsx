@@ -39,7 +39,8 @@ const MaximisedComment = (props: Props) => {
 };
 
 const styles = StyleSheet.create({
-  outer: { //comment below main comment
+  outer: {
+    //comment below main comment
     width: '100%',
     paddingLeft: '5%',
     marginTop: 10,
