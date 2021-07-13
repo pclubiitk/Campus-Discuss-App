@@ -4855,7 +4855,7 @@
   "resolved" "https://registry.npmjs.org/react-native-keyboard/-/react-native-keyboard-2.0.1.tgz"
   "version" "2.0.1"
 
-"react-native-paper@^2.2.2 || ^3.0.0":
+"react-native-paper@^2.2.2 || ^3.0.0", "react-native-paper@^3.12.0":
   "integrity" "sha512-c5GfDkITfrutoVB4+pE/kL2gH7sHuxD9eAs8+cY1q4PjuYW8geV1Hst14HQstSrYkksXN9StI0wryyb21BDfrw=="
   "resolved" "https://registry.npmjs.org/react-native-paper/-/react-native-paper-3.12.0.tgz"
   "version" "3.12.0"
