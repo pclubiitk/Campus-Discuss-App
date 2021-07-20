@@ -41,5 +41,5 @@ Here is the picture of the screen:
 
 ---
 
-<a href="url"><img src="" align="left" height="900" width="450" >
+<a href="url"><img src="https://github.com/7shivamx/Campus-Discuss-App/blob/master/ui/screens/home/sample.jpeg" >
 </a>
