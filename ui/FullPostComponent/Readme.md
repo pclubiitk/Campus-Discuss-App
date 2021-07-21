@@ -23,5 +23,5 @@ Sample Image:
 
 ---
 <a href="url">
-<img src="">
+<img src="https://github.com/7shivamx/Campus-Discuss-App/blob/master/ui/FullPostComponent/Sample.jpeg">
 </a>
