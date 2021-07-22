@@ -1,49 +1,48 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, {useState} from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
-import {Overlay} from 'react-native-elements';
+import React, { Component, useRef } from 'react'
+import { Text, StyleSheet, View, TextPropTypes, TextInput, StatusBar } from 'react-native'
+import BackButton from './Components/backButton'
+import HeadComment from './Components/HeadComment';
+import commentReply from "./Components/finalexample.js";
+import MessageInput from './Components/textInput';
+import { ScrollView } from 'react-native-gesture-handler';
 
-import MaximisedComment from './MaximisedComment';
-import ReplyBox from './ReplyBox';
-import BackButton from './BackButton';
 
-type Props = {
-  isVisible: boolean;
-  onBack: () => void;
-  comments: Array<IComment>;
+type CommentProps = {
+  comment: IComment;
+  onReply: () => void;
 };
 
-const CommentBox = (props: Props) => {
+const App = (props:CommentProps) => {
+  let inpRef: React.MutableRefObject<TextInput | undefined> = useRef();
+
+  const focusInputBox = () => {
+    if (inpRef.current) {
+      inpRef.current.focus();
+    }
+  };
+
+  const onReplyHandler = () => {
+    focusInputBox();
+  };
+  const statusheight =StatusBar.currentHeight;
   return (
-    <Overlay
-      isVisible={props.isVisible}
-      fullScreen
-      overlayStyle={styles.overlay}
-      onRequestClose={props.onBack}>
-      <View style={styles.outer}>
-        <BackButton onBack={props.onBack} />
-        <View style={styles.commentOuter}>
-          <View style={styles.commentList}>
-            <FlatList
-              data={props.comments}
-              keyExtractor={comment => comment.pk.toString()}
-              renderItem={({item}) => (
-                <MaximisedComment comment={item} showReplies={true} />
-              )}
-            />
-          </View>
+    <View style={{marginTop:statusheight,padding:5,justifyContent:'space-between'}}>
+      <View style={{height:'91%'}}>
+        <BackButton onBack={"nav to be added"}  />
+        <View style={{}}>
+        <ScrollView> 
+          <HeadComment />
+        </ScrollView>
         </View>
-        <ReplyBox placeholder={'Add a comment'} />
+        </View>
+        <View style={{justifyContent:'flex-end',height:'7%',translateY:14}}>
+          <MessageInput/>
+        </View>
       </View>
-    </Overlay>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({
-  commentOuter: {paddingHorizontal: 5, flex: 1},
-  commentList: {paddingLeft: '5%', flex: 1},
-  overlay: {padding: 0},
-  outer: {flex: 1},
-});
+export default App
 
-export default CommentBox;
+
+const styles = StyleSheet.create({})
