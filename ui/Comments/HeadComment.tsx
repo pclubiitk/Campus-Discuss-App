@@ -1,26 +1,20 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Appearance, StyleSheet, Text, View } from 'react-native'
 import Title from './title';
-import replies from './examplenew.js';
-import commentData from "./example2.js";
 import commentReply from "./finalexample.js";
 import Darkthememgr from './darkthememgr';
 import { Image } from 'react-native-elements/dist/image/Image';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faReply, } from '@fortawesome/free-solid-svg-icons'
 
-type CommentProps = {
-    
-    onReply: () => void;
-    commentAlpha: any;
-    comment:string;
-  };
 let imager =<Darkthememgr icon = 'up'/>
   function Comment({ commentPara }) {
     const nestedComments = (commentPara.children || []).map(mapper => {
       return <Comment key={mapper.id} commentPara={mapper} />
     })
-  
+    
     return (
-      <View style={{marginLeft: 15,borderLeftWidth:1.5,paddingTop:5,paddingLeft:4}}>
+      <View style={{marginLeft: 15,borderLeftWidth:1.5,paddingTop:5,paddingLeft:4,borderColor:'grey'}}>
         <View style={{}}>
         <View >
                 <Title
@@ -36,9 +30,8 @@ let imager =<Darkthememgr icon = 'up'/>
         <View >
                 <View style={{flexDirection:'row'}}>
                     <Text style={{flex:1.8}}/>
-                    <View style={{flex:1,flexDirection:'row'}}><Image
-                                            source ={require('../assets/response.png')} 
-                                            style= {{height:20,width:20}}/>
+                    <View style={{flex:1,flexDirection:'row'}}>
+                        <FontAwesomeIcon icon = {faReply} color='#33BEF0' size={18}/>
                                             <Text>    Reply</Text>
                     </View>
                     <View style={{flex:1,justifyContent:'space-between',flexDirection:'row'}}>
