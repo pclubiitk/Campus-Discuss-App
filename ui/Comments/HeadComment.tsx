@@ -3,7 +3,6 @@ import { Appearance, StyleSheet, Text, View } from 'react-native'
 import Title from './title';
 import commentReply from "./finalexample.js";
 import Darkthememgr from './darkthememgr';
-import { Image } from 'react-native-elements/dist/image/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faReply, } from '@fortawesome/free-solid-svg-icons'
 
@@ -28,13 +27,13 @@ let imager =<Darkthememgr icon = 'up'/>
             <Text style={{paddingLeft:3}} >{commentPara.text}</Text>
         </View>
         <View >
-                <View style={{flexDirection:'row'}}>
+                <View style={{flexDirection:'row',paddingTop:3}}>
                     <Text style={{flex:1.8}}/>
-                    <View style={{flex:1,flexDirection:'row'}}>
+                    <View style={{width:80,flexDirection:'row'}}>
                         <FontAwesomeIcon icon = {faReply} color='#33BEF0' size={18}/>
                                             <Text>    Reply</Text>
                     </View>
-                    <View style={{flex:1,justifyContent:'space-between',flexDirection:'row'}}>
+                    <View style={{width:80,justifyContent:'space-between',flexDirection:'row'}}>
                         <View style={{flex:1,height:20}}><Darkthememgr icon='up'/></View>
                         <Text style={{textAlign:'center'}}>{commentPara.likes}</Text>
                         <View style={{flex:1,height:20,alignItems:'flex-end'}}><Darkthememgr icon='down'/></View>
