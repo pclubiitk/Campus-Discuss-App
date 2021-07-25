@@ -1,0 +1,1 @@
+Contains sample profile picture

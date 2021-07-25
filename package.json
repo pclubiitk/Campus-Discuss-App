@@ -8,9 +8,11 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^10.2.1",
     "@react-native-community/masked-view": "0.1.10",
-    "@react-navigation/native": "^5.9.4",
-    "@react-navigation/stack": "^5.14.5",
+    "@react-navigation/drawer": "^5.11.4",
+    "@react-navigation/native": "^5.8.10",
+    "@react-navigation/stack": "^5.12.4",
     "expo": "^38.0.8",
     "expo-asset": "~8.1.7",
     "expo-status-bar": "^1.0.2",
@@ -30,7 +32,9 @@
     "react-native-vector-icons": "^7.1.0",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.4.0",
-    "react-navigation-stack": "^2.8.2"
+    "react-navigation-drawer": "^2.7.1",
+    "react-navigation-material-bottom-tabs": "^2.3.4",
+    "react-navigation-stack": "^2.10.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

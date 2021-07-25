@@ -54,7 +54,6 @@ const RootStack = createStackNavigator<RootStackParamList>();
 
 function App() {
   return (
-    
     <View style={styles.container}>
      
       <Text>hello there</Text>
@@ -82,3 +81,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
