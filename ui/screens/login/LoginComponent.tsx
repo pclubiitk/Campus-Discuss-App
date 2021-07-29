@@ -12,6 +12,7 @@ import {
   TextInputChangeEventData,
 } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import axios from 'axios';
 
 const LoginComponent = () => {
   const [secureState, setSecureState] = useState(true);
@@ -58,7 +59,26 @@ const LoginComponent = () => {
     const value = e.nativeEvent.text;
     setPassword(value);
   };
+  
+  
+  async function login(){
+    let data = { username, password };
+    let apiOptions = {
+      url : "http://localhost:8080/users/auth/login/",
+      method: "POST",
+      Headers: {
+        "Content-Type":"application/json",
+        "Accept":"application/json"
+      },
+      body: data
+    };
+    let output = await axios.post(apiOptions);
+    output = await output.json();
+    localStorage.setItem("user-info",JSON.stringify(output));
+    
 
+
+  }
   return (
     <View style={styles.container}>
       {!keyboardVisibility && (
@@ -98,10 +118,10 @@ const LoginComponent = () => {
           ) : null}
         </View>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity >
         <Text style={styles.forgot}>Forgot Password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.login}>
+      <TouchableOpacity style={styles.login} onPress={login}>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
     </View>
